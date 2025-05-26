@@ -13,3 +13,13 @@ tasks:
       fi
 
       aws --version
+
+      ### Add auto-prompt to shell config if not already added
+      
+      if ! grep -q "AWS_CLI_AUTO_PROMPT=on-partial" ~/.bashrc; then
+        echo 'export AWS_CLI_AUTO_PROMPT=on-partial' >> ~/.bashrc
+      fi
+
+      export AWS_CLI_AUTO_PROMPT=on-partial  # For current shell
+      echo "Auto-prompt is set to: $AWS_CLI_AUTO_PROMPT"
+      aws --version
