@@ -7,6 +7,7 @@ tasks:
         unzip -o awscliv2.zip
         sudo ./aws/install
         rm -rf awscliv2.zip aws
+        echo "AWS CLI installed and the zip file deleted"
       else
         echo "AWS CLI already installed."
       fi
