@@ -54,7 +54,7 @@ So Docker will:
 ### Run the container
 
 ```yml
-docker run --rm -d -p 4567:4567 -it -e FRONTEND_URL="*" -e BACKEND_URL="*" backend-flask
+docker run --rm -d -p 4567:4567 -it -e FRONTEND_URL='*' -e BACKEND_URL='*' backend-flask
 ```
 
 - `--rm`: Automatically removes the container after it stops (no leftover containers).
@@ -103,6 +103,7 @@ docker exec -it $CONTAINER_ID /bin/bash
 
 - `/bin/bash`: The command you want to run inside the container (launches a Bash shell).
 
+On your ports tab on the terminal, make port 4567 public and visit the URL provided. Add the endpoint `/api/activities/home`
 
 ## Containerize the frontend
 
