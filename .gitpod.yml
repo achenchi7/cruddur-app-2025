@@ -36,6 +36,25 @@ tasks:
     command: |
       cd frontend-react-js
       npm install
+
+
+  - name: terraform
+    command: |
+      if ! command -v terraform &> /dev/null; then
+        echo "Installing Terraform..."
+        T_VERSION="1.14.0"
+        wget https://releases.hashicorp.com/terraform/${T_VERSION}/terraform_${T_VERSION}_linux_amd64.zip
+        unzip terraform_${T_VERSION}_linux_amd64.zip
+        sudo mv terraform /usr/local/bin/
+        rm terraform_${T_VERSION}_linux_amd64.zip
+        echo "Terraform installed."
+      else
+        echo "Terraform already installed."
+      fi
+
+      terraform version
+
 vscode:
   extensions:
     - ms-azuretools.vscode-docker
+    - hashicorp.terraform
