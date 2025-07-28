@@ -1,4 +1,5 @@
 from datetime import datetime, timedelta, timezone
+
 class HomeActivities:
   def run():
     now = datetime.now(timezone.utc).astimezone()
@@ -39,6 +40,5 @@ class HomeActivities:
       'expires_at': (now + timedelta(hours=12)).isoformat(),
       'likes': 0,
       'replies': []
-    }
-    ]
+    }]
     return results
