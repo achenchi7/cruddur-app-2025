@@ -137,7 +137,8 @@ docker build -t frontend-react-js ./frontend-react-js
 
 ### Run the container
 ```yml
-docker run -d -p 3000:3000 frontend-react-js -it
+docker run -d -it -p 3000:3000 frontend-react-js
+
 ```
 
 - Open port 3000 from the ports tab to confirm that indeed your container is running.
@@ -190,3 +191,13 @@ networks:
 
 
 
+```
+docker-compose down -v --remove-orphans
+```
+
+Removes all images and dependencies. It's perfect
+
+### Pitfalls and errors encountered
+#### 1. React scripts not found
+
+In the `package.json` file make sure there is a `"react-scripts": "5.0.1",` if not add it and then run `npm install`
