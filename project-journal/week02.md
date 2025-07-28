@@ -17,3 +17,14 @@ OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
 ```
 
 OTEL - Open Telemetry
+
+**_Please remember you have hardcoded the honeycomb api key. DON'T PUSH_**
+
+Added the following block(s) of code in `homw-activities.py`
+
+```python
+from opentelemetry import trace
+tracer = tracer.get_tracer("home.activities")
+
+with tracer.start_as_current_span("home-activities-mock-data"): # then indented the rest of the existing code
+```
