@@ -168,3 +168,31 @@ NotAuthorizedException: Client <your_client_id> is configured with secret but SE
 - Update your env variable
 
 
+### Backend authentication - JWTs
+#### Update app.py
+```js
+cors = CORS(
+  app, 
+  resources={r"/api/*": {"origins": origins}},
+  headers=['Content-Type', 'Authorization'], 
+  expose_headers='Authorization',
+  methods="OPTIONS,GET,HEAD,POST"
+)
+```
+
+#### Update `backend-flask/requirements.txt` file
+`Flask-AWSCognito` - Extension for Flask that adds support for AWSCognito into your application.
+
+Navigate to `backend-flask` and run `pip install -r requirements.txt`
+
+#### Update `docker-compose.yml` file
+Under the backend-flask service add:
+
+```yml
+AWS_COGNITO_USER_POOL_ID: "us-east-1_7LwuPwMbu"
+AWS_COGNITO_USER_POOL_CLIENT_ID: "7o94ur1bgsmlp6ed0dbnnk0bm6"
+AWS_PROJECT_REGION: "${AWS_DEFAULT_REGION}"
+
+```
+
+
